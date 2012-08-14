@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="rcpdemo.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="rcpdemo.Perspective"
+            id="rcpdemo.perspective">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="rcpdemo.application"
+            name="Hello RCP">
+         <property
+               name="windowImages"
+               value="icons/alt_window_16.gif,icons/alt_window_32.gif">
+         </property>
+         <property
+               name="appName"
+               value="Hello RCP">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="rcpdemo.command1"
+            id="rcpdemo.command1"
+            name="Exit">
+      </command>
+      <command
+            id="rcpdemo.command2"
+            name="New">
+      </command>
+      <command
+            id="rcpdemo.command3"
+            name="Cut">
+      </command>
+      <command
+            id="rcpdemo.command4"
+            name="Copy">
+      </command>
+      <command
+            id="rcpdemo.command5"
+            name="Go Into">
+      </command>
+      <command
+            id="rcpdemo.command6"
+            name="Go To">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               label="File">
+            <command
+                  commandId="rcpdemo.command1"
+                  style="push">
+            </command>
+            <command
+                  commandId="rcpdemo.command2"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               label="Edit">
+            <command
+                  commandId="rcpdemo.command3"
+                  style="push">
+            </command>
+            <command
+                  commandId="rcpdemo.command4"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               label="Navigate">
+            <command
+                  commandId="rcpdemo.command5"
+                  style="push">
+            </command>
+            <command
+                  commandId="rcpdemo.command6"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
